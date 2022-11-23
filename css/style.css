@@ -1,0 +1,162 @@
+body{
+    background-color: #090a17;
+}
+
+
+.gear-image{
+    background-image: url(../images/girltouchinglightbulb.png);
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    position: sticky;
+    top:0px;
+    background-color: #090a17;
+}
+.has-background-warning{
+    background-color: #f7e139;
+}
+.airmaxbox{
+    font-size: large;
+    text-align: center;
+}
+
+.title2{
+    font-weight: bold;
+    font-size: 95px;
+    color: black;
+}
+.midsection{
+    text-align: center;
+    background-color: gainsboro;
+}
+
+hr.solid {
+    border-top: 2,4px solid #bbb;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+
+.flex-container > div {
+    background-color: #f1f1f1;
+    width: 290px;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    background-color: white;
+}
+
+.is-300x300{
+    width: 300px;
+    height: 375px;
+}
+
+.slides {
+    height:90vh;
+}
+
+.card-content{
+    font-size: 20px;
+}
+
+.slide img {
+    width: 300px;
+    height:375px;
+    object-fit: cover;
+    border:3px solid black;
+}
+
+
+
+.slide {
+    opacity: 0;
+    position: absolute;
+    size: 20px;
+}
+
+.slide:nth-child(1) {
+    opacity: 1;
+    animation: showOne 8s ease-in-out infinite;
+}
+
+.slide:nth-child(2) {
+    opacity: 0;
+    animation: showTwo 8s ease-in-out infinite;
+}
+
+.slide:nth-child(3) {
+    opacity: 0;
+    animation: showThree 8s ease-in-out infinite;
+}
+
+@keyframes showOne {
+    0% {
+        opacity: 1;
+    }
+
+    33% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes showTwo {
+    0% {
+        opacity: 0;
+    }
+
+    33% {
+        opacity: 1;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes showThree {
+    0% {
+        opacity: 0;
+    }
+
+    33% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.footerdownbelow{
+    background-color: #1e464a;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1e464a;
+    color: white;
+    text-align: center;
+}
