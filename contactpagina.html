@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>HOME | EQUANS website</title>
+    <title>CONTACT | EQUANS website</title>
 </head>
 <body>
 <header>
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a href="index.html" class="navbar-item">
@@ -25,7 +26,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="afspraakpagina.html">
+                <a class="navbar-item">
                     Maak een afspraak
                 </a>
 
@@ -46,7 +47,7 @@
                             Electriciens
                         </a>
                         <a class="navbar-item">
-                           Kantoor
+                            Kantoor
                         </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item">
@@ -54,44 +55,61 @@
                         </a>
                     </div>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-black">
-                            <strong>Inloggen MijnEngie</strong>
-                        </a>
-                    </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-black">
+                        <strong>Inloggen MijnEngie</strong>
+                    </a>
                 </div>
             </div>
+        </div>
         </div>
     </nav>
 </header>
 <main>
-    <section class="hero is-large gear-image">
+    <section class="hero is-medium contact-image ">
         <div class="hero-body text">
-            <p  class="title has-text-white is-2 pt-2">
-                Ontdek het gemak van ENGIE
-            </p>
-            <p class="subtitle">
-            <p class="has-text-white pt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus libero leo, pellentesque ornare, adipiscing vitae, rhoncus commodo, nulla. Fusce quis ipsum. Nulla neque massa, feugiat sed, commodo in, adipiscing ut, est. In fermentum mattis ligula. Nulla ipsum. Vestibulum condimentum condimentum augue. Nunc purus risus, volutpat sagittis, lobortis at, dignissim sed, sapien. Fusce porttitor iaculis ante. Curabitur eu arcu. Morbi quam purus, tempor eget, ullamcorper feugiat, commodo ullamcorper, neque.</p>
-            <button class="button has-background-warning-dark has-text-white-bis">Ontdek hoe</button>
-            <button class="button has-background-info-dark has-text-white-bis">Download onze app</button>
+            <p  class="title has-text-primary is-2 pt-2">
+                Contactpagina
             </p>
         </div>
-    </section>
-    <section class="hero airmaxbox">
-        <div class="hero-body">
-            <p class="subtitle has-text-white">
-                Aangekondigde energiemaatregelen
-            </p>
-            <p class="title2 has-text-white">
-                Eenvoudig je energiezaken regelen
-            </p>
-        </div>
-    </section>
+
+    <div class="container subtitle has-text-black">
+        <form action="/action_page.php">
+            <label for="voornaam">Voornaam</label>
+            <input type="text" id="voornaam" name="voornaam" placeholder="Uw naam..." required>
+
+            <label for="achternaam">Achternaam</label>
+            <input type="text" id="achternaam" name="achternaam" placeholder="Uw achternaam.." required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Uw email.." required>
+
+            <label for="telefoon">Telefoonnummer</label>
+            <input type="text" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer.." required>
+
+            <label for="woonplaats">Woonplaats</label>
+            <input type="text" id="woonplaats" name="woonplaats" placeholder="Uw woonplaats.." required>
+
+            <label for="reden">Reden voor contact</label>
+            <select id="reden" name="reden">
+                <option value="project">Ik wil een project bespreken</option>
+                <option value="solliciatie">Ik wil graag solliciteren</option>
+                <option value="andere">Andere reden (graag hieronder invullen!)</option>
+            </select>
+
+            <label for="subject"></label>
+            <textarea id="subject" name="subject" placeholder="Andere reden indien u deze optie hebt geselecteerd" style="height:200px"></textarea>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+        </section>
 </main>
 <footer>
     <section class="hero has-background-dark ">
