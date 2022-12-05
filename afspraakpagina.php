@@ -1,3 +1,4 @@
+<?php require_once 'initialize.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,7 +80,35 @@
 
 
     <div class="container subtitle has-text-black">
-    <h1>[ Dit is voor nu een placeholder totdat de database is aangemaakt ]</h1>
+        <?php if (isset($error)): ?>
+            <span class="error"><?= $error; ?></span>
+        <?php endif; ?>
+
+        <?php if (isset($werkgevers) && isset($totalWerkgevers)): ?>
+            <table>
+                <thead>
+                <tr>
+                    <th>Naam</th>
+                    <th>Email</th>
+                    <th>Telefoonnummer</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <td colspan="3">Totaal: <?= $totalWerkgevers; ?></td>
+                </tr>
+                </tfoot>
+                <tbody>
+                <?php foreach($werkgevers as $werkgever): ?>
+                    <tr>
+                        <td><?= $werkgever->naam;?></td>
+                        <td><?= $werkgever->email;?></td>
+                        <td><?= $werkgever->telefoonnummer;?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php endif; ?>
     </div>
     </section>
 </main>
