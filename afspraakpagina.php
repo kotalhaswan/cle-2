@@ -91,6 +91,7 @@
                     <th>Naam</th>
                     <th>Email</th>
                     <th>Telefoonnummer</th>
+                    <th>Vakgebied</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -104,6 +105,8 @@
                         <td><?= $werkgever->naam;?></td>
                         <td><?= $werkgever->email;?></td>
                         <td><?= $werkgever->telefoonnummer;?></td>
+                        <td><?= $werkgever->vakgebied;?></td>
+                        <td><a href="contactpagina.html">Maak afspraak</a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

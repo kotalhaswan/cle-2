@@ -1,8 +1,11 @@
 <?php
 require_once 'settings.php';
 require_once 'Werkgeverslist/Databases/Database.php';
+require_once 'Werkgeverslist/Workgroup/Werkgroep.php';
+require_once 'Werkgeverslist/Workgroup/equansWerkers.php';
 require_once 'Werkgeverslist/Persons/Person.php';
 require_once 'Werkgeverslist/Persons/Werkgever.php';
+
 
 
 try {
@@ -16,9 +19,15 @@ try {
     $werkgeversFromDB = $connection->query($query)
         ->fetchAll(PDO::FETCH_CLASS, '\\Werkgeverslist\\Persons\\Werkgever');
 
+    //Create new instance for class & add students
+    $equansWerkers = new \Werkgeverslist\Workgroup\equansWerkers();
+    $equansWerkers->setWorkers($werkgeversFromDB);
+
+
     //Get variables for template
-    $werkgevers = $cmgtClass->getStudents();
-    $totalWerkgevers = $cmgtClass->getTotalStudents();
+    $werkgevers = $equansWerkers->getWorkers();
+    $totalWerkgevers = $equansWerkers->getTotalWorkers();
+
 } catch (Exception $e) {
     //Set error variable for template
     $error = 'Oops, try to fix your error please: ' .

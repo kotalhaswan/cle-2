@@ -8,5 +8,6 @@ class Werkgever extends Person
     public string $naam;
     public string $email;
     public string $telefoonnummer;
+    public string $vakgebied;
 }
 
