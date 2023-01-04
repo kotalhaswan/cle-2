@@ -1,9 +1,18 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>CONTACT | EQUANS website</title>
+</head>
+<body>
 <header>
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a href="../../index.html" class="navbar-item">
-                <img src="<?= BASE_PATH ?>images/engielogo.png" width="100" height="28">
+            <a href="index.html" class="navbar-item">
+                <img src="images/engielogo.png" width="100" height="28">
             </a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -56,52 +65,45 @@
                 </div>
             </div>
         </div>
+        </div>
     </nav>
 </header>
 <main>
-    <section class="hero is-medium afspraak-image ">
+    <section class="hero is-medium contact-image ">
         <div class="hero-body text">
-            <p  class="title has-text-white has-background-primary is-2 pt-2">
-                Zoek uw ideale werknemer voor uw afspraak:
+            <p  class="title has-text-primary is-2 pt-2">
+                Contactpagina
             </p>
         </div>
 
+        <div class="container subtitle has-text-black">
+            <form action="thankyou.html">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" name="naam" placeholder="Uw volledige naam..." required>
 
-    <div class="container subtitle has-text-black">
-        <?php if (isset($error)): ?>
-            <span class="error"><?= $error; ?></span>
-        <?php endif; ?>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Uw email.." required>
 
-        <?php if (isset($werkgevers) && isset($totalWerkgevers)): ?>
-            <table>
-                <thead>
-                <tr>
-                    <th>Naam</th>
-                    <th>Email</th>
-                    <th>Telefoonnummer</th>
-                    <th>Vakgebied</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                    <td colspan="3">Totaal: <?= $totalWerkgevers; ?></td>
-                </tr>
-                </tfoot>
-                <tbody>
-                <?php foreach($werkgevers as $werkgever): ?>
-                    <tr>
-                        <td><?= $werkgever->naam;?></td>
-                        <td><?= $werkgever->email;?></td>
-                        <td><?= $werkgever->telefoonnummer;?></td>
-                        <td><?= $werkgever->vakgebied;?></td>
-                        <td class="is-vcentered"><a href="<?= BASE_PATH; ?>detail?id=<?= $werkgever->id; ?>">Details</a></td>
-                        <td><a href="contactpagina.php">Maak afspraak</a></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
-    </div>
+                <label for="telefoon">Telefoonnummer</label>
+                <input type="text" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer.." required>
+
+                <label for="woonplaats">Woonplaats</label>
+                <input type="text" id="woonplaats" name="woonplaats" placeholder="Uw woonplaats.." required>
+
+                <label for="reden">Reden voor contact</label>
+                <select id="reden" name="reden">
+                    <option value="project">Ik wil een project bespreken</option>
+                    <option value="solliciatie">Ik wil graag solliciteren</option>
+                    <option value="andere">Andere reden (graag hieronder invullen!)</option>
+                </select>
+
+                <label for="subject"></label>
+                <textarea id="subject" name="subject" placeholder="Andere reden indien u deze optie hebt geselecteerd" style="height:200px"></textarea>
+
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </section>
 </main>
 <footer>
@@ -111,6 +113,5 @@
                 Klantenservice
             </p>
         </div>
-
     </section>
 </footer>

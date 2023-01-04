@@ -62,46 +62,46 @@
     <section class="hero is-medium afspraak-image ">
         <div class="hero-body text">
             <p  class="title has-text-white has-background-primary is-2 pt-2">
-                Zoek uw ideale werknemer voor uw afspraak:
+                Alle klantenafspraken:
             </p>
         </div>
 
 
-    <div class="container subtitle has-text-black">
-        <?php if (isset($error)): ?>
-            <span class="error"><?= $error; ?></span>
-        <?php endif; ?>
+        <div class="container subtitle has-text-black">
+            <?php if (isset($error)): ?>
+                <span class="error"><?= $error; ?></span>
+            <?php endif; ?>
 
-        <?php if (isset($werkgevers) && isset($totalWerkgevers)): ?>
-            <table>
-                <thead>
-                <tr>
-                    <th>Naam</th>
-                    <th>Email</th>
-                    <th>Telefoonnummer</th>
-                    <th>Vakgebied</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                    <td colspan="3">Totaal: <?= $totalWerkgevers; ?></td>
-                </tr>
-                </tfoot>
-                <tbody>
-                <?php foreach($werkgevers as $werkgever): ?>
+            <?php if (isset($werkgevers) && isset($totalWerkgevers)): ?>
+                <table>
+                    <thead>
                     <tr>
-                        <td><?= $werkgever->naam;?></td>
-                        <td><?= $werkgever->email;?></td>
-                        <td><?= $werkgever->telefoonnummer;?></td>
-                        <td><?= $werkgever->vakgebied;?></td>
-                        <td class="is-vcentered"><a href="<?= BASE_PATH; ?>detail?id=<?= $werkgever->id; ?>">Details</a></td>
-                        <td><a href="contactpagina.php">Maak afspraak</a></td>
+                        <th>Naam</th>
+                        <th>Email</th>
+                        <th>Telefoonnummer</th>
+                        <th>Vakgebied</th>
                     </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
-    </div>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <td colspan="3">Totaal: <?= $totalWerkgevers; ?></td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <?php foreach($werkgevers as $werkgever): ?>
+                        <tr>
+                            <td><?= $werkgever->naam;?></td>
+                            <td><?= $werkgever->email;?></td>
+                            <td><?= $werkgever->telefoonnummer;?></td>
+                            <td><?= $werkgever->vakgebied;?></td>
+                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>edit?id=<?= $werkgever->id; ?>">Edit</a></td>
+                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>delete?id=<?= $werkgever->id; ?>">Delete</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        </div>
     </section>
 </main>
 <footer>
