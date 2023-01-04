@@ -1,37 +1,31 @@
 <?php
 require_once 'settings.php';
-require_once 'Werkgeverslist/Databases/Database.php';
-require_once 'Werkgeverslist/Workgroup/Werkgroep.php';
-require_once 'Werkgeverslist/Workgroup/equansWerkers.php';
-require_once 'Werkgeverslist/Persons/Person.php';
-require_once 'Werkgeverslist/Persons/Werkgever.php';
+require_once 'vendor/autoload.php';
 
+$session = new \Werkgeverslist\Utils\Session();
 
+//Set variable for errors
+$errors = [];
 
 try {
+    //Get the url from the .htaccess rewrite & check existence (if not: 404!)
+    $currentPage = (!isset($_GET['_url']) || $_GET['_url'] == '' ? 'home' : $_GET['_url']);
+    $phpFile = $currentPage . '.php';
+    if (!file_exists(INCLUDES_PATH . 'pages/' . $phpFile)) {
+        header('HTTP/1.0 404 Not Found');
+        $phpFile = '404.php';
+    }
 
-    $db = new Werkgeverslist\Databases\Database
-    (DB_HOST, DB_USER,DB_PASS, DB_NAME);
-    $connection = $db ->getConnection();
+    //Require file for logic
+    require_once 'pages/' . $phpFile;
 
-    //Get students from database
-    $query = 'SELECT * FROM werkgevers';
-    $werkgeversFromDB = $connection->query($query)
-        ->fetchAll(PDO::FETCH_CLASS, '\\Werkgeverslist\\Persons\\Werkgever');
-
-    //Create new instance for class & add students
-    $equansWerkers = new \Werkgeverslist\Workgroup\equansWerkers();
-    $equansWerkers->setWorkers($werkgeversFromDB);
-
-
-    //Get variables for template
-    $werkgevers = $equansWerkers->getWorkers();
-    $totalWerkgevers = $equansWerkers->getTotalWorkers();
-
+    //Use output buffers to capture template data from require statement and store in $content
+    ob_start();
+    require_once 'pages/templates/' . $phpFile;
+    $content = ob_get_clean();
 } catch (Exception $e) {
-    //Set error variable for template
-    $error = 'Oops, try to fix your error please: ' .
-        $e->getMessage() . ' on line ' . $e->getLine() . ' of ' .
-        $e->getFile();
+    //Set error
+    $errors[] = 'Oops, try to fix your error please: ' . $e->getMessage() . ' on line ' . $e->getLine() . ' of ' . $e->getFile();
 }
+
 

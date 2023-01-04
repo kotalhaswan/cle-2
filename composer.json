@@ -1,0 +1,22 @@
+{
+  "name": "vendor_name/cle-2",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Aswan",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "ext-pdo": "*"
+  },
+  "autoload" :
+  {
+    "psr-4":
+    {
+      "Werkgeverslist\\": "includes/classes/Werkgeverslist"
+    }
+  }
+  }

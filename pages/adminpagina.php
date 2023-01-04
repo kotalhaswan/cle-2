@@ -1,3 +1,4 @@
+<?php require_once 'initialize.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>HOME | EQUANS website</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>ADMIN | EQUANS website</title>
 </head>
 <body>
 <header>
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a href="index.html" class="navbar-item">
-                <img src="images/engielogo.png" width="100" height="28">
+            <a href="../index.html" class="navbar-item">
+                <img src="../images/engielogo.png" width="100" height="28">
             </a>
 
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -25,7 +27,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="pages/templates/afspraakpagina.php">
+                <a class="navbar-item">
                     Maak een afspraak
                 </a>
 
@@ -46,7 +48,7 @@
                             Electriciens
                         </a>
                         <a class="navbar-item">
-                           Kantoor
+                            Kantoor
                         </a>
                         <hr class="navbar-divider">
                         <a class="navbar-item">
@@ -54,42 +56,62 @@
                         </a>
                     </div>
                 </div>
-                </div>
             </div>
+        </div>
 
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-black">
-                            <strong>Inloggen MijnEngie</strong>
-                        </a>
-                    </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-black">
+                        <strong>Inloggen MijnEngie</strong>
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 </header>
 <main>
-    <section class="hero is-large gear-image">
+    <section class="hero is-medium afspraak-image ">
         <div class="hero-body text">
-            <p  class="title has-text-white is-2 pt-2">
-                Ontdek het gemak van ENGIE
-            </p>
-            <p class="subtitle">
-            <p class="has-text-white pt-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus libero leo, pellentesque ornare, adipiscing vitae, rhoncus commodo, nulla. Fusce quis ipsum. Nulla neque massa, feugiat sed, commodo in, adipiscing ut, est. In fermentum mattis ligula. Nulla ipsum. Vestibulum condimentum condimentum augue. Nunc purus risus, volutpat sagittis, lobortis at, dignissim sed, sapien. Fusce porttitor iaculis ante. Curabitur eu arcu. Morbi quam purus, tempor eget, ullamcorper feugiat, commodo ullamcorper, neque.</p>
-            <button class="button has-background-warning-dark has-text-white-bis">Ontdek hoe</button>
-            <button class="button has-background-info-dark has-text-white-bis">Download onze app</button>
+            <p  class="title has-text-white has-background-primary is-2 pt-2">
+               Afspraken lijst:
             </p>
         </div>
-    </section>
-    <section class="hero airmaxbox">
-        <div class="hero-body">
-            <p class="subtitle has-text-white">
-                Aangekondigde energiemaatregelen
-            </p>
-            <p class="title2 has-text-white">
-                Eenvoudig je energiezaken regelen
-            </p>
+
+
+        <div class="container subtitle has-text-black">
+            <?php if (isset($error)): ?>
+                <span class="error"><?= $error; ?></span>
+            <?php endif; ?>
+
+            <?php if (isset($werkgevers) && isset($totalWerkgevers)): ?>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Naam</th>
+                        <th>Email</th>
+                        <th>Telefoonnummer</th>
+                        <th>Vakgebied</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <td colspan="3">Totaal: <?= $totalWerkgevers; ?></td>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <?php foreach($werkgevers as $werkgever): ?>
+                        <tr>
+                            <td><?= $werkgever->naam;?></td>
+                            <td><?= $werkgever->email;?></td>
+                            <td><?= $werkgever->telefoonnummer;?></td>
+                            <td><?= $werkgever->vakgebied;?></td>
+                            <td><a href="delete.php?link=<?= $werkgever->id;?>">Delete</a></td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
         </div>
     </section>
 </main>
@@ -100,6 +122,7 @@
                 Klantenservice
             </p>
         </div>
+
     </section>
 </footer>
 </body>
