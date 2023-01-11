@@ -95,7 +95,7 @@
                         <td><?= $werkgever->telefoonnummer;?></td>
                         <td><?= $werkgever->vakgebied;?></td>
                         <td class="is-vcentered"><a href="<?= BASE_PATH; ?>detail?id=<?= $werkgever->id; ?>">Details</a></td>
-                        <td><a href="contactpagina.php">Maak afspraak</a></td>
+                        <td><a href="contactpagina">Maak afspraak</a></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

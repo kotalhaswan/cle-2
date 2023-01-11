@@ -72,30 +72,32 @@
                 <span class="error"><?= $error; ?></span>
             <?php endif; ?>
 
-            <?php if (isset($werkgevers) && isset($totalWerkgevers)): ?>
+            <?php if (isset($contactgevers) && isset($totalContactgevers)): ?>
                 <table>
                     <thead>
                     <tr>
                         <th>Naam</th>
                         <th>Email</th>
                         <th>Telefoonnummer</th>
-                        <th>Vakgebied</th>
+                        <th>Woonplaats</th>
+                        <th>Reden</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <td colspan="3">Totaal: <?= $totalWerkgevers; ?></td>
+                        <td colspan="3">Totaal: <?= $totalContactgevers; ?></td>
                     </tr>
                     </tfoot>
                     <tbody>
-                    <?php foreach($werkgevers as $werkgever): ?>
+                    <?php foreach($contactgevers as $contactgever): ?>
                         <tr>
-                            <td><?= $werkgever->naam;?></td>
-                            <td><?= $werkgever->email;?></td>
-                            <td><?= $werkgever->telefoonnummer;?></td>
-                            <td><?= $werkgever->vakgebied;?></td>
-                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>edit?id=<?= $werkgever->id; ?>">Edit</a></td>
-                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>delete?id=<?= $werkgever->id; ?>">Delete</a></td>
+                            <td><?= $contactgever->naam;?></td>
+                            <td><?= $contactgever->email;?></td>
+                            <td><?= $contactgever->telefoonnummer;?></td>
+                            <td><?= $contactgever->woonplaats;?></td>
+                            <td><?= $contactgever->reden;?></td>
+                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>edit?id=<?= $contactgever->id; ?>">Edit</a></td>
+                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>delete?id=<?= $contactgever->id; ?>">Delete</a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

@@ -34,13 +34,6 @@ class Person
      * @param \PDO $db
      * @return bool
      */
-    public function delete(\PDO $db): bool
-    {
-        $query = 'DELETE FROM werkgevers
-                  WHERE id = :id';
-        $statement = $db->prepare($query);
-        return $statement->execute([':id' => $this->id]);
-    }
 
     /**
      * Save a album to the database

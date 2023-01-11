@@ -6,10 +6,6 @@ use Werkgeverslist\Persons\Werkgever;
 
 class equansWerkers implements Werkgroep
 {
-    public string $name = 'Advanced Group';
-    public string $slogan = 'We rock!';
-    private array $students = [];
-    public const MAX_STUDENTS = 25;
 
     /**
      * @return Werkgever[]
@@ -29,9 +25,6 @@ class equansWerkers implements Werkgroep
     {
         $this->werkgevers = $werkgevers;
 
-        if ($this->getTotalWorkers() > self::MAX_STUDENTS) {
-            throw new \Exception('Too many students!');
-        }
     }
 
     /**

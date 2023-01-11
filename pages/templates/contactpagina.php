@@ -1,12 +1,12 @@
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>CONTACT | EQUANS website</title>
-</head>
-<body>
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="./css/style.css">-->
+<!--    <title>CONTACT | EQUANS website</title>-->
+<!--</head>-->
+<!--<body>-->
 <header>
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -65,7 +65,6 @@
                 </div>
             </div>
         </div>
-        </div>
     </nav>
 </header>
 <main>
@@ -75,20 +74,21 @@
                 Contactpagina
             </p>
         </div>
-
         <div class="container subtitle has-text-black">
             <form action="thankyou.html">
+
+                <?php if (isset($contact)): ?>
                 <label for="naam">Naam</label>
-                <input type="text" id="naam" name="naam" placeholder="Uw volledige naam..." required>
+                <input type="text" id="naam" name="naam" placeholder="Uw volledige naam..." required value="<?= '' ?>">
 
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Uw email.." required>
+                <input type="text" id="email" name="email" placeholder="Uw email.." required value="<?= '' ?>">
 
                 <label for="telefoon">Telefoonnummer</label>
-                <input type="text" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer.." required>
+                <input type="text" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer.." required value="<?= '' ?>">
 
                 <label for="woonplaats">Woonplaats</label>
-                <input type="text" id="woonplaats" name="woonplaats" placeholder="Uw woonplaats.." required>
+                <input type="text" id="woonplaats" name="woonplaats" placeholder="Uw woonplaats.." required value="<?= '' ?>">
 
                 <label for="reden">Reden voor contact</label>
                 <select id="reden" name="reden">
@@ -102,6 +102,7 @@
 
 
                 <input type="submit" value="Submit">
+                <?php endif; ?>
             </form>
         </div>
     </section>
@@ -115,3 +116,5 @@
         </div>
     </section>
 </footer>
+
+<a class="button" href="<?= BASE_PATH; ?>home">&laquo; Go back to the list</a>

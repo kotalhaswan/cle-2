@@ -4,16 +4,16 @@ $db = new \Werkgeverslist\Databases\Database(DB_HOST, DB_USER, DB_PASS, DB_NAME)
 
 try {
     //Get the record from the db
-    $album = \Werkgeverslist\Persons\Werkgever::getById($_GET['id'], $db->getConnection());
+    $contact = \Werkgeverslist\Contacts\Contact::getById($_GET['id'], $db->getConnection());
 
     //Override logic for POST
-    require_once dirname(__FILE__) . '/includes/album-post-data.php';
+    require_once dirname(__FILE__) . '/includes/contact-post-data.php';
 
     //Database magic when no errors are found
     if (isset($formData) && empty($errors)) {
 
         //Save the record to the db
-        if ($werkgever->update($db->getConnection())) {
+        if ($contact->update($db->getConnection())) {
             $success = 'Your album has been updated in the database!';
         } else {
             $errors[] = 'Database error info: ' . $db->getConnection()->errorInfo()[0];
@@ -21,9 +21,9 @@ try {
     }
 
     //Default page title
-    $pageTitle = 'Edit ' . $werkgever->naam;
+    $pageTitle = 'Edit ' . $contact->naam;
 } catch (Exception $e) {
     //Something went wrong on this level
     $errors[] = $e->getMessage();
-    $pageTitle = 'Album does\'t exist';
+    $pageTitle = 'Contact does\'t exist';
 }

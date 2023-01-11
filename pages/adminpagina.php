@@ -4,15 +4,15 @@ $db = new Werkgeverslist\Databases\Database
 $connection = $db ->getConnection();
 
 //Get students from database
-$query = 'SELECT * FROM werkgevers';
-$werkgeversFromDB = $connection->query($query)
-    ->fetchAll(PDO::FETCH_CLASS, '\\Werkgeverslist\\Persons\\Werkgever');
+$query = 'SELECT * FROM contact';
+$contactgeversFromDB = $connection->query($query)
+    ->fetchAll(PDO::FETCH_CLASS, '\\Werkgeverslist\\Contacts\\Contact');
 
 //Create new instance for class & add students
-$equansWerkers = new \Werkgeverslist\Workgroup\equansWerkers();
-$equansWerkers->setWorkers($werkgeversFromDB);
+$allContacts = new \Werkgeverslist\Contactgroup\allContacts();
+$allContacts->setContact($contactgeversFromDB);
 
 
 //Get variables for template
-$werkgevers = $equansWerkers->getWorkers();
-$totalWerkgevers = $equansWerkers->getTotalWorkers();
+$contactgevers= $allContacts->getContact();
+$totalContactgevers = $allContacts->getTotalContact();
