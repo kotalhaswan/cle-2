@@ -3,7 +3,7 @@
 namespace Werkgeverslist\Form\Validation;
 /**
  * Interface Validator
- * @package System\Form\Validation
+ * @package Werkgeverslist\Form\Validation
  */
 interface Validator
 {

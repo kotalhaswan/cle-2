@@ -2,7 +2,7 @@
 
 /**
  * Class Session
- * @package System\Utils
+ * @package Werkgeverslist\Utils
  */
 class Session
 {

@@ -7,14 +7,14 @@ try {
     $contact = \Werkgeverslist\Contacts\Contact::getById($_GET['id'], $db->getConnection());
 
     //Override logic for POST
-    require_once dirname(__FILE__) . '/includes/contact-post-data.php';
+    require_once dirname(__FILE__) . '/../includes/contact-post-data.php';
 
     //Database magic when no errors are found
     if (isset($formData) && empty($errors)) {
 
         //Save the record to the db
         if ($contact->update($db->getConnection())) {
-            $success = 'Your album has been updated in the database!';
+            $success = 'Your contact has been updated in the database!';
         } else {
             $errors[] = 'Database error info: ' . $db->getConnection()->errorInfo()[0];
         }

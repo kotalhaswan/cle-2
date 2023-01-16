@@ -6,8 +6,8 @@ class Contacting
      * Class Contacting
      * @package Werkgeverslist\Contacts
      */
-    public string $naam;
-    public int $id;
+    public int $id = 0;
+    public string $naam = '';
     public string $email = '';
     public string $telefoonnummer = '';
     public string $woonplaats = '';
@@ -42,7 +42,7 @@ class Contacting
         ]);
     }
     /**
-     * Save a album to the database
+     * Save an afspraak to the database
      *
      * @param Contacting $contact
      * @param \PDO $db
@@ -51,7 +51,7 @@ class Contacting
     public static function create(Contacting $contact, \PDO $db): bool
     {
         $query = 'INSERT INTO contact (id, naam, email, telefoonnummer, woonplaats, reden)
-                  VALUES (:user_id, :naam, :email, :telefoonnummer, :woonplaats, :reden)';
+                  VALUES (:id, :naam, :email, :telefoonnummer, :woonplaats, :reden)';
         $statement = $db->prepare($query);
         return $statement->execute([
             ':id' => $contact->id,

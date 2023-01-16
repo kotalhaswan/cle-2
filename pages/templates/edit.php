@@ -21,7 +21,7 @@
                     <label class="label" for="name">Naam</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="name" type="text" name="name" value="<?= $contact->naam; ?>"/>
+                    <input class="input" id="name" type="text" name="naam" value="<?= $contact->naam; ?>"/>
                 </div>
             </div>
             <div class="field is-horizontal">
@@ -50,10 +50,10 @@
             </div>
             <div class="field is-horizontal">
                 <div class="field-label is-normal">
-                    <label class="label" for="Reden">Reden</label>
+                    <label class="label" for="reden">Reden</label>
                 </div>
                 <div class="field-body">
-                    <input class="input" id="Reden" type="text" name="Reden" value="<?= $contact->reden; ?>"/>
+                    <input class="input" id="reden" type="text" name="reden" value="<?= $contact->reden; ?>"/>
                 </div>
             </div>
             <div class="field is-horizontal">
@@ -65,4 +65,4 @@
         </form>
     </section>
 <?php endif; ?>
-<a class="button" href="<?= BASE_PATH; ?>home">&laquo; Go back to the list</a>
+<a class="button" href="<?= BASE_PATH; ?>adminpagina">&laquo; Go back to the list</a>

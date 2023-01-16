@@ -68,44 +68,62 @@
     </nav>
 </header>
 <main>
+
     <section class="hero is-medium contact-image ">
         <div class="hero-body text">
             <p  class="title has-text-primary is-2 pt-2">
                 Contactpagina
             </p>
         </div>
+        <?php if (!empty($errors)): ?>
+            <section class="content">
+                <ul class="notification is-danger">
+                    <?php foreach ($errors as $error): ?>
+                        <li><?= $error; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </section>
+        <?php endif; ?>
+
+        <?php if (isset($success)): ?>
+            <p class="notification is-primary"><?= $success; ?></p>
+        <?php endif; ?>
         <div class="container subtitle has-text-black">
-            <form action="thankyou.html">
+            <form class="column is-6" action="" method="post" enctype="multipart/form-data">
 
                 <?php if (isset($contact)): ?>
                 <label for="naam">Naam</label>
-                <input type="text" id="naam" name="naam" placeholder="Uw volledige naam..." required value="<?= '' ?>">
+                <input type="text" id="naam" name="naam" placeholder="Uw volledige naam..."  value="<?=$contact->naam?>">
 
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Uw email.." required value="<?= '' ?>">
+                <input type="text" id="email" name="email" placeholder="Uw email.."  value="<?= $contact->email ?>">
 
                 <label for="telefoon">Telefoonnummer</label>
-                <input type="text" id="telefoon" name="telefoon" placeholder="Uw telefoonnummer.." required value="<?= '' ?>">
+                <input type="text" id="telefoonnummer" name="telefoonnummer" placeholder="Uw telefoonnummer.."  value="<?=$contact->telefoonnummer ?>">
 
                 <label for="woonplaats">Woonplaats</label>
-                <input type="text" id="woonplaats" name="woonplaats" placeholder="Uw woonplaats.." required value="<?= '' ?>">
+                <input type="text" id="woonplaats" name="woonplaats" placeholder="Uw woonplaats.."  value="<?= $contact->woonplaats ?>">
 
                 <label for="reden">Reden voor contact</label>
                 <select id="reden" name="reden">
-                    <option value="project">Ik wil een project bespreken</option>
-                    <option value="solliciatie">Ik wil graag solliciteren</option>
-                    <option value="andere">Andere reden (graag hieronder invullen!)</option>
+                    <option value="<?= $contact->reden ?>">Ik wil een project bespreken</option>
+                    <option value="<?= $contact->reden ?>">Ik wil graag solliciteren</option>
+                    <option value="<?= $contact->reden ?>">Andere reden (graag hieronder invullen!)</option>
                 </select>
 
-                <label for="subject"></label>
-                <textarea id="subject" name="subject" placeholder="Andere reden indien u deze optie hebt geselecteerd" style="height:200px"></textarea>
+                <label for="reden"></label>
+                <textarea id="reden" name="reden" placeholder="Andere reden indien u deze optie hebt geselecteerd" style="height:200px"></textarea>
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal"></div>
+                    <div class="field-body">
+                        <button class="button is-primary is-fullwidth" type="submit" name="submit">Save</button>
+                    </div>
+                </div>
 
-
-                <input type="submit" value="Submit">
-                <?php endif; ?>
             </form>
         </div>
     </section>
+    <?php endif; ?>
 </main>
 <footer>
     <section class="hero has-background-dark ">
@@ -116,5 +134,3 @@
         </div>
     </section>
 </footer>
-
-<a class="button" href="<?= BASE_PATH; ?>home">&laquo; Go back to the list</a>

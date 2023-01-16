@@ -2,15 +2,15 @@
 use Werkgeverslist\Contacts\Contact;
 use Werkgeverslist\Contacts\Contacting;
 /**
- * Class AlbumValidator
- * @package System\Form\Validation
+ * Class Contactvalidator
+ * @package Werkgeverslist\Form\Validation
  */
 class ContactValidator implements Validator
 {
     private array $errors = [];
 
     /**
-     * AlbumValidator constructor.
+     * Contactvalidator constructor.
      *
      * @param Contacting $contact
      */

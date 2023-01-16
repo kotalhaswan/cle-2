@@ -25,7 +25,7 @@ try {
     $content = ob_get_clean();
 } catch (Exception $e) {
     //Set error
-    $errors[] = 'Oops, try to fix your error please: ' . $e->getMessage() . ' on line ' . $e->getLine() . ' of ' . $e->getFile();
+    die('Oops, try to fix your error please: ' . $e->getMessage() . ' on line ' . $e->getLine() . ' of ' . $e->getFile());
 }
 
 
