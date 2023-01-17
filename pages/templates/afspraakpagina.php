@@ -77,8 +77,6 @@
                 <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Email</th>
-                    <th>Telefoonnummer</th>
                     <th>Vakgebied</th>
                 </tr>
                 </thead>
@@ -91,8 +89,6 @@
                 <?php foreach($werkgevers as $werkgever): ?>
                     <tr>
                         <td><?= $werkgever->naam;?></td>
-                        <td><?= $werkgever->email;?></td>
-                        <td><?= $werkgever->telefoonnummer;?></td>
                         <td><?= $werkgever->vakgebied;?></td>
                         <td class="is-vcentered"><a href="<?= BASE_PATH; ?>detail?id=<?= $werkgever->id; ?>">Details</a></td>
                         <td><a href="contactpagina">Maak afspraak</a></td>

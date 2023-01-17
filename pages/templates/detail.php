@@ -14,7 +14,7 @@
     <section class="content">
         <ul>
             <li>Telefoonnummer: <?= $werkgever->telefoonnummer; ?></li>
-            <li>vakgebied: <?= $werkgever->vakgebied; ?></li>
+            <li>Email: <?= $werkgever->email; ?></li>
         </ul>
     </section>
     <a class="button mt-4" href="<?= BASE_PATH; ?>afspraakpagina">Go back to the list</a>
