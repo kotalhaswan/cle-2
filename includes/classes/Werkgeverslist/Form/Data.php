@@ -2,7 +2,7 @@
 
 /**
  * Class Data
- * @package System\Form
+ * @package Werkgeverslist\Form
  */
 class Data
 {

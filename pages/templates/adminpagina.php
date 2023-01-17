@@ -51,7 +51,7 @@
             <div class="navbar-item">
                 <div class="buttons">
                     <a class="button is-black">
-                        <strong>Inloggen MijnEngie</strong>
+                        <strong><a href="logout">Log uit</a></strong>
                     </a>
                 </div>
             </div>

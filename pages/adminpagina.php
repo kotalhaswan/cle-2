@@ -1,4 +1,10 @@
 <?php
+
+/** @var Werkgeverslist\Utils\Session $session */
+if (!$session->keyExists('user')) {
+    header('Location: login');
+    exit;
+}
 $db = new Werkgeverslist\Databases\Database
 (DB_HOST, DB_USER,DB_PASS, DB_NAME);
 $connection = $db ->getConnection();
