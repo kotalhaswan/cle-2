@@ -96,8 +96,8 @@
                             <td><?= $contactgever->telefoonnummer;?></td>
                             <td><?= $contactgever->woonplaats;?></td>
                             <td><?= $contactgever->reden;?></td>
-                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>edit?id=<?= $contactgever->id; ?>">Edit</a></td>
-                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>delete?id=<?= $contactgever->id; ?>">Delete</a></td>
+                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>edit?id=<?= $contactgever->id; ?>">Wijzig</a></td>
+                            <td class="is-vcentered"><a href="<?= BASE_PATH; ?>delete?id=<?= $contactgever->id; ?>">Verwijder</a></td>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>

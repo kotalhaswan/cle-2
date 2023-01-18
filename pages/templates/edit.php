@@ -65,4 +65,4 @@
         </form>
     </section>
 <?php endif; ?>
-<a class="button" href="<?= BASE_PATH; ?>adminpagina">&laquo; Go back to the list</a>
+<a class="button" href="<?= BASE_PATH; ?>adminpagina">&laquo; Terug naar lijst</a>

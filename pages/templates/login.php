@@ -36,4 +36,4 @@
     </form>
 </section>
 
-<a class="button mt-4" href="<?= BASE_PATH; ?>home">&laquo; Go back to the list</a>
+<a class="button mt-4" href="<?= BASE_PATH; ?>home">&laquo; Terug naar lijst</a>

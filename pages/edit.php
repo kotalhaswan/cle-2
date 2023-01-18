@@ -15,7 +15,7 @@ try {
 
         //Save the record to the db
         if ($contact->update($db->getConnection())) {
-            $success = 'Your contact has been updated in the database!';
+            $success = 'Contact succesvol aangepast!';
         } else {
             $errors[] = 'Database error info: ' . $db->getConnection()->errorInfo()[0];
         }

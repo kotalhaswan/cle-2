@@ -20,20 +20,4 @@ class Contact extends Contacting
         return $this->contact;
     }
 
-    /**
-     * @param array $contact
-     */
-    public function add(array $contact): void
-    {
-        $this->contact = $contact;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTotal(): int
-    {
-        return count($this->contact);
-    }
-
 }

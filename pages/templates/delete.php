@@ -9,8 +9,8 @@
 <?php endif; ?>
 
 <?php if (isset($contactgever)): ?>
-    <h1 class="title mt-4">Are you sure you want to delete <?= $contactgever->naam; ?>?</h1>
-    <a class="button is-danger mt-4" href="<?= BASE_PATH; ?>delete?id=<?= $contactgever->id; ?>&continue">Yes, delete!</a>
-    <a class="button mt-4" href="<?= BASE_PATH; ?>home">Go back to the list</a>
+    <h1 class="title mt-4">Weet je zeker dat je <?= $contactgever->naam; ?> wilt verwijderen?</h1>
+    <a class="button is-danger mt-4" href="<?= BASE_PATH; ?>delete?id=<?= $contactgever->id; ?>&continue">Ja, verwijder!</a>
+    <a class="button mt-4" href="<?= BASE_PATH; ?>adminpagina">Terug naar lijst</a>
 <?php endif; ?>
 
